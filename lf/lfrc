@@ -1,0 +1,97 @@
+# set previewer ~/.config/lf/lf_kitty_preview
+# set cleaner ~/.config/lf/lf_kitty_clean
+set previewer lf-ueberzug-previewer
+set cleaner lf-ueberzug-cleaner
+
+# Basic Settings
+set hidden true
+set ignorecase true
+
+# Custom Functions
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd lfcd ${{
+    dir=$(dirname "$id")
+    cd "$dir"
+}}
+
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+cmd copydir ${{
+    echo -n "$(lf -last-dir)" | xclip -selection clipboard
+    echo "Directory path copied to clipboard"
+}}
+
+# Trash bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd restore_trash ${{
+  trash-restore
+}}
+
+# Open a file with the editor
+cmd open &{{
+    case $(file --mime-type -Lb $f) in
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+# Bindings
+map d
+map m
+
+map au unarchive
+map ae $wine "$f"
+
+# Basic Functions
+map . set hidden!
+map dd trash
+map dr restore_trash
+map p paste
+map x cut
+map y copy
+map <enter> open
+map R reload
+map mf mkfile
+map md mkdir
+map C clear
+
+# Movement
+map gD cd ~/Documents
+map gd cd ~/Downloads
+map gc cd ~/.config
+map gh cd /mnt/data
+map gp cd ~/personal
+map gw cd ~/work

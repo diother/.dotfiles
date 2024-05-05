@@ -1,0 +1,28 @@
+#!/bin/bash
+
+lfcd () {
+    cd "$(command lf -print-last-dir "$@")"
+}
+
+# Define aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias vim='nvim'
+
+alias figma='thorium-browser --app="https://figma.com"'
+alias chatgpt='thorium-browser --app="https://chat.openai.com"'
+alias notion='thorium-browser --app="https://notion.com"'
+
+# Export environment variables
+export EDITOR=nvim
+export PATH="$PATH:~/.config/bin/"
+
+# Set default options for FZF
+export FZF_DEFAULT_OPTS='--color=fg:#cdd6f4,bg:#1e1e2e,hl:#a6adc8,fg+:#cdd6f4,bg+:#313244,hl+:#a6adc8'
+
+# Define keymaps
+bind -x '"\C-f": "tmux-sessionizer"'
+bind -x '"\C-t": "tmux-sessionizer ~/personal/t3-start"'
+bind -x '"\C-n": "tmux-sessionizer ~/work/wp-hintermann"'
+
+bind '"\C-y": "lfcd\n"'
