@@ -22,7 +22,7 @@ export FZF_DEFAULT_OPTS='--color=fg:#cdd6f4,bg:#1e1e2e,hl:#a6adc8,fg+:#cdd6f4,bg
 
 # Define keymaps
 bind -x '"\C-f": "tmux-sessionizer"'
-bind -x '"\C-t": "tmux-sessionizer ~/personal/t3-start"'
+bind -x '"\C-t": "tmux-sessionizer ~/work/hintermann-charity-webapp"'
 bind -x '"\C-n": "tmux-sessionizer ~/work/wp-hintermann"'
 
 bind '"\C-y": "lfcd\n"'

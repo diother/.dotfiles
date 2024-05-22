@@ -77,8 +77,8 @@ map ae $wine "$f"
 
 # Basic Functions
 map . set hidden!
-map dd trash
-map dr restore_trash
+# map dd trash
+# map dr restore_trash
 map p paste
 map x cut
 map y copy
@@ -95,3 +95,4 @@ map gc cd ~/.config
 map gh cd /mnt/data
 map gp cd ~/personal
 map gw cd ~/work
+map gt cd ~/.trash
