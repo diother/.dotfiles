@@ -20,9 +20,10 @@ export PATH="$PATH:~/.config/bin/"
 # Set default options for FZF
 export FZF_DEFAULT_OPTS='--color=fg:#cdd6f4,bg:#1e1e2e,hl:#a6adc8,fg+:#cdd6f4,bg+:#313244,hl+:#a6adc8'
 
-# Define keymaps
+# Define tmux-sessionizer keymaps
 bind -x '"\C-f": "tmux-sessionizer"'
 bind -x '"\C-t": "tmux-sessionizer ~/work/hintermann-charity-webapp"'
 bind -x '"\C-n": "tmux-sessionizer ~/work/wp-hintermann"'
 
+# Define keymaps
 bind '"\C-y": "lfcd\n"'
