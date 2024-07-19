@@ -578,7 +578,7 @@ local urls = {
     "",
     "https://notion.so",
     "https://chat.openai.com",
-    "https://www.youtube.com/watch?v=iDVKMdnvgl8&list=PLBSOUwqQZcrxJdRzTUXFtRFejpD6uujNg&index=1&ab_channel=PLAYYYPRETEND",
+    "https://youtu.be/q76bMs-NwRk",
 }
 
 -- define a function to move thorium browser windows to the corresponding tag based on their class
@@ -588,7 +588,7 @@ local function move_thorium_to_tag(c)
         ["thorium-browser"] = 2,          -- browser index
         ["notion.so"] = 7,                -- notion index
         ["chat.openai.com"] = 8,          -- chatgpt index
-        ["www.youtube.com__watch"] = 9,              -- youtube index
+        ["youtu.be__q76bMs-NwRk"] = 9,              -- youtube index
     }
 
     -- extract the class name from wm_class property

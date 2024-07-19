@@ -58,7 +58,8 @@ return require('packer').startup(function(use)
     }
     use {
         "nvimtools/none-ls.nvim",
-        requires = { "nvim-lua/plenary.nvim" }
+        requires = { "nvim-lua/plenary.nvim" },
+        commit = "88821b6"
     }
     use {
         "smoka7/multicursors.nvim",
