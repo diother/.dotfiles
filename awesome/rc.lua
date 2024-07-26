@@ -567,7 +567,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- launch application at startup
 awful.spawn.with_shell("picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0")
-awful.spawn.with_shell("alacritty")
+awful.spawn.with_shell("alacritty -e tmux")
 awful.spawn.with_shell("megasync")
 
 -- launching browser instances and assigning them with a custom tag
