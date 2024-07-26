@@ -3,7 +3,14 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-
+    use({
+        "epwalsh/obsidian.nvim",
+        tag = "*",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
+    use 'folke/zen-mode.nvim'
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.6',
         requires = { 
@@ -11,13 +18,7 @@ return require('packer').startup(function(use)
             {'BurntSushi/ripgrep'}
         }
     }
-    use ({ 
-        'catppuccin/nvim',
-        as = 'catppuccin',
-        config = function()
-            vim.cmd('colorscheme catppuccin')
-        end
-    })
+    use 'catppuccin/nvim'
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('windwp/nvim-ts-autotag')
     use('theprimeagen/harpoon')
@@ -50,12 +51,7 @@ return require('packer').startup(function(use)
         'folke/noice.nvim',
         requires = { 'MunifTanjim/nui.nvim' }
     }
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup() -- Vgc and Vgb for commenting
-        end
-    }
+    use 'numToStr/Comment.nvim'
     use {
         "nvimtools/none-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },

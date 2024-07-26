@@ -197,26 +197,26 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
-    -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
-
-    -- Add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            -- s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widget
-            layout = wibox.layout.fixed.horizontal,
-            mytextclock,
-            spacer,
-            wibox.widget.systray()
-        },
-    }
+    -- -- Create the wibox
+    -- s.mywibox = awful.wibar({ position = "top", screen = s })
+    --
+    -- -- Add widgets to the wibox
+    -- s.mywibox:setup {
+    --     layout = wibox.layout.align.horizontal,
+    --     { -- Left widgets
+    --         layout = wibox.layout.fixed.horizontal,
+    --         mylauncher,
+    --         -- s.mytaglist,
+    --         s.mypromptbox,
+    --     },
+    --     s.mytasklist, -- Middle widget
+    --     { -- Right widget
+    --         layout = wibox.layout.fixed.horizontal,
+    --         mytextclock,
+    --         spacer,
+    --         wibox.widget.systray()
+    --     },
+    -- }
 end)
 -- }}}
 
@@ -568,6 +568,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- launch application at startup
 awful.spawn.with_shell("picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0")
 awful.spawn.with_shell("alacritty")
+awful.spawn.with_shell("megasync")
 
 -- launching browser instances and assigning them with a custom tag
 
@@ -586,7 +587,8 @@ local function move_thorium_to_tag(c)
         ["thorium-browser"] = 2,          -- browser index
         ["notion.so"] = 7,                -- notion index
         ["chat.openai.com"] = 8,          -- chatgpt index
-        ["youtu.be__q76bMs-NwRk"] = 9,              -- youtube index
+        ["youtu.be__q76bMs-NwRk"] = 9,    -- youtube index
+        ["megasync"] = 5,                 -- megasync index
     }
 
     -- extract the class name from wm_class property

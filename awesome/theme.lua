@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "monospace 10"
+theme.font          = "monospace 11"
 
 theme.bg_normal     = "#1e1e2e"
 theme.bg_focus      = "#181825"
@@ -72,7 +72,7 @@ theme.menu_width  = dpi(100)
 -- beautiful.variable in your rc.lua
 --theme.bg_widget = "#cc0000"
 
-theme.wallpaper = "~/Documents/wallpapers/luffy2.png"
+theme.wallpaper = "~/Documents/wallpapers/arch.jpg"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(

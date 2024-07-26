@@ -20,13 +20,18 @@ alias notion='thorium-browser --app="https://notion.com"'
 export EDITOR=nvim
 export PATH="$PATH:~/.config/bin/"
 
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
 # Set default options for FZF
 export FZF_DEFAULT_OPTS='--color=fg:#cdd6f4,bg:#1e1e2e,hl:#a6adc8,fg+:#cdd6f4,bg+:#313244,hl+:#a6adc8'
 
 # Define tmux-sessionizer keymaps
 bind -x '"\C-f": "tmux-sessionizer"'
-bind -x '"\C-t": "tmux-sessionizer ~/work/hintermann-webapp"'
-bind -x '"\C-n": "tmux-sessionizer ~/work/wp-hintermann"'
+bind -x '"\C-t": "tmux-sessionizer ~/personal/brain"'
+bind -x '"\C-n": "tmux-sessionizer ~/work/hintermann-webapp"'
+bind -x '"\C-s": "tmux-sessionizer ~/work/wp-hintermann"'
 
 # Define keymaps
 bind '"\C-y": "lfcd\n"'
+
+eval "$(starship init bash)"

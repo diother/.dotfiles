@@ -13,13 +13,27 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
+setup_brain_session() {
+    tmux new-session -ds $selected_name -c $selected
+
+    tmux send-keys -t $selected_name 'nvim 1-workspace/"Working memory.md" -c "lua vim.cmd([[ZenMode]])"' C-m
+}
+
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    if [[ "$selected" == "$HOME/personal/brain" ]]; then
+        setup_brain_session
+    else
+        tmux new-session -s $selected_name -c $selected
+    fi
     exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+    if [[ "$selected" == "$HOME/personal/brain" ]]; then
+        setup_brain_session
+    else
+        tmux new-session -ds $selected_name -c $selected
+    fi
 fi
 
 if [[ -n $TMUX ]]; then
@@ -27,3 +41,4 @@ if [[ -n $TMUX ]]; then
 else
     tmux attach -t $selected_name
 fi
+
