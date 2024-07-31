@@ -14,7 +14,6 @@ alias stripe:listen='stripe listen --forward-to localhost:3000/api/stripe'
 
 alias figma='thorium-browser --app="https://figma.com"'
 alias chatgpt='thorium-browser --app="https://chat.openai.com"'
-alias notion='thorium-browser --app="https://notion.com"'
 
 # Export environment variables
 export EDITOR=nvim
@@ -32,6 +31,6 @@ bind -x '"\C-n": "tmux-sessionizer ~/work/hintermann-webapp"'
 bind -x '"\C-s": "tmux-sessionizer ~/work/wp-hintermann"'
 
 # Define keymaps
-bind '"\C-y": "lfcd\n"'
+bind '"\C-y": "yazi\n"'
 
 eval "$(starship init bash)"

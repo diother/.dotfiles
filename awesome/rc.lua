@@ -49,7 +49,7 @@ end
 beautiful.init("~/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "kitty"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -308,7 +308,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run -nb '#181825' -sf '#cdd6f4' -sb '#1e1e2e' -nf '#cdd6f4'") end,
+    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run -fn 'monospace-14' -nb '#181825' -sf '#cdd6f4' -sb '#1e1e2e' -nf '#cdd6f4'") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -566,16 +566,16 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- launch application at startup
-awful.spawn.with_shell("picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0")
-awful.spawn.with_shell("alacritty -e tmux")
+-- awful.spawn.with_shell("picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0")
+awful.spawn.with_shell("kitty -e tmux")
 awful.spawn.with_shell("megasync")
+awful.spawn.with_shell("obsidian")
 
 -- launching browser instances and assigning them with a custom tag
 
 -- Define the URLs for each instance of Thorium Browser
 local urls = {
     "",
-    "https://notion.so",
     "https://chat.openai.com",
     "https://youtu.be/q76bMs-NwRk",
 }
@@ -585,7 +585,7 @@ local function move_thorium_to_tag(c)
     -- define a table to map class names to custom tag indices
     local class_to_tag_mapping = {
         ["thorium-browser"] = 2,          -- browser index
-        ["notion.so"] = 7,                -- notion index
+        ["obsidian"] = 7,                 -- obsidian index
         ["chat.openai.com"] = 8,          -- chatgpt index
         ["youtu.be__q76bMs-NwRk"] = 9,    -- youtube index
         ["megasync"] = 5,                 -- megasync index
